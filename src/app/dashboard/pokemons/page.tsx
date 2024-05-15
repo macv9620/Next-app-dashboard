@@ -1,6 +1,12 @@
 import { PokemonGrid, PokemonsReponse, SimplePokemon } from "@/pokemons";
 
-//Fetch que trae información de la API
+
+export const metadata = {
+ title: '151 Pokémons',
+ description: 'Ad minim sit cupidatat culpa consectetur.',
+};
+
+
 const getPokemons = async( limit = 20, offset= 0 ):Promise<SimplePokemon[]> => {
   const data:PokemonsReponse = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${ offset }`)
     .then( res => res.json() );
@@ -10,19 +16,19 @@ const getPokemons = async( limit = 20, offset= 0 ):Promise<SimplePokemon[]> => {
       name: pokemon.name,
     }));
 
-    //throw new Error('Esto es un error que no debería de suceder');
+    // throw new Error('Esto es un error que no debería de suceder');
     // throw notFound();
 
     return pokemons;
 }
 
-//Componente asíncrono
+
+
+
 export default async function PokemonsPage() {
 
-  //Espera fetch de data
   const pokemons = await getPokemons(151);
-
-  //Se ejecuta cuando la petición se resuelve
+  
   return (
     <div className="flex flex-col">
 
