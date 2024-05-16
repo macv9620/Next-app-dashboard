@@ -5,6 +5,7 @@ interface CounterState {
   isReady: boolean;
 }
 
+
 const initialState: CounterState = {
   count: 5,
   isReady: false,
@@ -37,6 +38,7 @@ const counterSlice = createSlice({
       state.count = action.payload;
 
     }
+
 
   }
 });
